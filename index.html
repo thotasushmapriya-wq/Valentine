@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Will You Be My Valentine? 💖</title>
-
   <style>
     body {
       margin: 0;
@@ -61,6 +60,12 @@
       transition: opacity 0.3s ease;
     }
 
+    .cute-cartoon {
+      width: 180px;
+      margin-bottom: 15px;
+      border-radius: 15px;
+    }
+
     .celebrate {
       display: none;
       margin-top: 20px;
@@ -98,11 +103,6 @@
       animation: float 4s linear infinite;
     }
 
-    .cute-cartoon {
-  width: 180px;
-  margin-bottom: 15px;
-  border-radius: 15px;
-}
     @keyframes float {
       0% { transform: translateY(0); opacity: 1; }
       100% { transform: translateY(-900px); opacity: 0; }
@@ -113,9 +113,11 @@
 <body>
 
 <div class="card">
-  <img src="https://giphy.com/gifs/saint-despicableme-puppydogeyes-Q2jxaHB0mV3Q4"
-     alt="cute cartoon heart"
-     class="cute-cartoon">
+  <!-- Cute GIF above question -->
+  <img src="https://media.giphy.com/media/Q2jxaHB0mV3Q4/giphy.gif" 
+       alt="cute cartoon heart" 
+       class="cute-cartoon">
+
   <h1>Omiee, Will you be my Valentine? 💕</h1>
 
   <button id="yesBtn">Yes 💖</button>
@@ -127,7 +129,7 @@
 
   <div class="celebrate" id="celebrate">
     <img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" alt="celebration">
-    <p>Yayy, You said YES 💋</p>
+    <p>Yayy, You said YES 💋</p> 
   </div>
 </div>
 
