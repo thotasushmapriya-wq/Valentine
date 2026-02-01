@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will You Be My Valentine? 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #ffd6e8, #fff0f5);
+      font-family: 'Comic Sans MS', 'Segoe UI', cursive;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      max-width: 360px;
+      position: relative;
+    }
+
+    h1 {
+      color: #ff4d88;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    #yesBtn {
+      background-color: #ff4d88;
+      color: white;
+      margin-right: 15px;
+    }
+
+    #noBtn {
+      background-color: #ddd;
+      color: #555;
+      position: absolute;
+    }
+
+    .shy-text {
+      font-size: 14px;
+      color: #ff7aa2;
+      margin-top: 25px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .celebrate {
+      display: none;
+      margin-top: 20px;
+      animation: pop 0.6s ease;
+    }
+
+    .celebrate img {
+      width: 220px;
+      border-radius: 20px;
+    }
+
+    .celebrate p {
+      font-size: 22px;
+      color: #ff4d88;
+      margin-top: 10px;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.6); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 26px;
+      animation: float 4s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-900px); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Will you be my Valentine? 💕</h1>
+
+  <button id="yesBtn">Yes 💖</button>
+  <button id="noBtn">No 🙈</button>
+
+  <div class="shy-text" id="shyText">
+    Seems like “No” is a bit shy 😏
+  </div>
+
+  <div class="celebrate" id="celebrate">
+    <img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" alt="celebration">
+    <p>You said YES 😭💖</p>
+  </div>
+</div>
+
+<div class="hearts" id="hearts"></div>
+
+<script>
+  const noBtn = document.getElementById("noBtn");
+  const yesBtn = document.getElementById("yesBtn");
+  const shyText = document.getElementById("shyText");
+  const celebrate = document.getElementById("celebrate");
+  const hearts = document.getElementById("hearts");
+
+  noBtn.style.top = "70%";
+  noBtn.style.left = "55%";
+
+  noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 60);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+    shyText.style.opacity = 1;
+  });
+
+  yesBtn.addEventListener("click", () => {
+    yesBtn.style.display = "none";
+    noBtn.style.display = "none";
+    shyText.style.display = "none";
+    celebrate.style.display = "block";
+    createHearts();
+  });
+
+  function createHearts() {
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = "100vh";
+      heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+      hearts.appendChild(heart);
+      setTimeout(() => heart.remove(), 4000);
+    }
+  }
+</script>
+
+</body>
+</html>
